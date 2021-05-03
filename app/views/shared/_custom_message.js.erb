@@ -1,0 +1,11 @@
+let div = document.createElement('div')
+
+div.style.width='fit-content'
+div.style.blockSize='fit-content'
+div.style.backgroundColor='grey'
+div.style.color="white"
+div.style.textAlign="center"
+
+div.innerHTML = '<%= j render "shared/custom_message.html" %>'
+
+document.querySelector("#custom_messages").appendChild(div) 

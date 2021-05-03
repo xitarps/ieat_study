@@ -18,6 +18,12 @@
       <p class="notice"><%= notice %></p>
     <%end%>
 
+    <%= render 'shared/custom_message_tag' %>
+
+    <p>
+      <%= link_to 'HOME', root_path%>
+    </p>
+
     <%= yield %>
   </body>
 </html>

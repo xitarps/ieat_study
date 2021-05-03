@@ -1,0 +1,35 @@
+<p>
+  <%= link_to 'Novo produto', new_product_path %>
+</p>
+
+<h1>Produtos:</h1>
+<table style="border: 1px solid black">
+  <thead>
+  <tr>
+    <th>Nome:</th>
+    <th>Valor:</th>
+    <th>Restaurante:</th>
+    <th>Ações:</th>
+  </tr>
+  </thead>
+  
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td>
+          <%= product.name %>
+        </td>
+        <td>
+          <%= number_to_currency(product.value, unit: 'R$', separator: ',', delimiter: '') %>
+        </td>
+        <td>
+          <%= product.restaurant.name %>
+        </td>
+        <td>
+          <%= link_to 'Apagar', product, method: :delete, data: {confirm: "Are you sure?"} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  
+</table>

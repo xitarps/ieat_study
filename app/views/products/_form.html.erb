@@ -1,0 +1,19 @@
+<%= form_with model: product, local: false  do |f| %>
+
+  <p>
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :value, 'Value' %>
+    <%= f.number_field :value %>
+  </p>
+
+  <p>
+    <%= f.label :restaurant_id, 'Restaurante' %>
+    <%= collection_select(:product, :restaurant_id, Restaurant.order(:name), :id, :name, include_blank: true) %>
+  </p>
+
+  <%= f.submit 'Submit' %>
+<% end %>
