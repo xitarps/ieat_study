@@ -6,36 +6,8 @@
     <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
   </p>
 
-  <% if current_user.restaurant? && current_user.restaurant %>
-    <p>Seus produtos, <%= current_user.restaurant.name %>:</p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>
-            Produto
-          </th>
-          <th>
-            Valor
-          </th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% current_user.restaurant.products.each do |product| %>
-          <tr>
-            <td>
-              <%= product.name %>
-            </td>
-            <td>
-              <%= number_to_currency(product.value, unit: 'R$', separator: ',', delimiter: '') %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-  <% end %>
+  <%= render 'restaurant' %>
+  
 <% else %>
    <p>
     <%= link_to 'Login', new_user_session_path %>
