@@ -2,6 +2,10 @@
 <p>Hello, <%= @email %></p>
 
 <% if user_signed_in? %>
+  <p>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
+  </p>
+
   <% if current_user.restaurant? %>
     <p>Seus produtos, <%= current_user.restaurant.name %>:</p>
 
@@ -32,6 +36,10 @@
     </table>
 
   <% end %>
+<% else %>
+   <p>
+    <%= link_to 'Login', new_user_session_path %>
+  </p>
 <% end %>
 
 <p>
