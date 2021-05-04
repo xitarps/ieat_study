@@ -3,3 +3,10 @@ td, th{
   margin: 0;
   border: 1px solid black;
 }
+#custom_messages{
+  transition: 2s;
+  animation: 2s;
+}
+.invisible{
+  opacity: 0;
+}

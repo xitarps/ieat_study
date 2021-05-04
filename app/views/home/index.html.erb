@@ -6,7 +6,7 @@
     <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
   </p>
 
-  <% if current_user.restaurant? %>
+  <% if current_user.restaurant? && current_user.restaurant %>
     <p>Seus produtos, <%= current_user.restaurant.name %>:</p>
 
     <table>
