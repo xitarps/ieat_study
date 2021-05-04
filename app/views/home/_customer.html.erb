@@ -1,0 +1,46 @@
+<% if current_user.customer? %>
+  <p>
+    Restaurantes:
+  </p>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th style='border:0;'>
+          Nome
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% Restaurant.order(name: :asc).each do |restaurant| %>
+        <tr>
+          <td style='border:0; padding: 5px; margin: 5px;'>
+            <%= restaurant.name %>
+          </td>
+          <table>
+            <tbody>
+            
+              <% restaurant.products.each do |product| %>
+                <tr>
+                  <td>
+                    -> <%= product.name %>
+                  </td>
+
+                  <td>
+                    <%= number_to_currency(product.value, unit: 'R$', separator: ',', delimiter: '') %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </tr>
+
+        <hr>
+
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
