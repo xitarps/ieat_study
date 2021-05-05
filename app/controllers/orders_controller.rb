@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 
     if @order.save
       flash[:notice] = "Pedido criado com sucesso!"
+      RestaurantNotifierJob.perform_later(current_user.id)
     else
       flash[:alert] = "Oops, something went wrong"
     end
