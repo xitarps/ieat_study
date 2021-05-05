@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
     @order.user_id = current_user.id
     @order.status = :pending
 
-    byebug
     if @order.save
       flash[:notice] = "Pedido criado com sucesso!"
     else

@@ -2,8 +2,6 @@
   <p>
     Restaurantes:
   </p>
-
-
   <table>
     <thead>
       <tr>
@@ -24,9 +22,8 @@
             
               <% restaurant.products.each do |product| %>
                 <tr>
-
                   <%= form_tag('/orders')  do |f| %>
-                    
+
                     <%= hidden_field_tag :product_id, product.id %>
                     <td>
                       -> <%= product.name %>
@@ -40,15 +37,12 @@
                       <%= submit_tag 'Pedir' %>
                     </td>
                   <% end %>
-
                 </tr>
               <% end %>
             </tbody>
           </table>
         </tr>
-
         <hr>
-
       <% end %>
     </tbody>
   </table>
